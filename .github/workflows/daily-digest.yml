@@ -51,6 +51,7 @@ jobs:
           else
             DATE=$(date -u +%Y-%m-%d)
             git commit -m "digest: ${DATE} daily digest"
+            git pull --rebase
             git push
           fi
 
@@ -62,6 +63,7 @@ jobs:
           git add manifest.json feed.xml
           if ! git diff --cached --quiet; then
             git commit -m "chore: update manifest.json"
+            git pull --rebase
             git push
           fi
 
