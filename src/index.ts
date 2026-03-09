@@ -1,5 +1,5 @@
 /**
- * agents-radar: daily digest for AI CLI tools and OpenClaw.
+ * Big Model Radar: daily digest for AI CLI tools and OpenClaw.
  *
  * Env vars:
  *   OPENAI_API_KEY      - API key for an OpenAI-compatible endpoint
@@ -547,9 +547,7 @@ async function main(): Promise<void> {
   const utcStr = now.toISOString().slice(0, 16).replace("T", " ");
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
 
-  console.log(
-    `[${now.toISOString()}] Starting digest | endpoint: ${getLlmBaseUrl()}`,
-  );
+  console.log(`[${now.toISOString()}] Starting digest | endpoint: ${getLlmBaseUrl()}`);
 
   // 1. Fetch all data in parallel
   const webState = loadWebState();

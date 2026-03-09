@@ -68,7 +68,7 @@ export async function fetchHnData(): Promise<HnData> {
             `&numericFilters=created_at_i>${since}` +
             `&hitsPerPage=30`;
           const resp = await fetch(url, {
-            headers: { "User-Agent": "agents-radar/1.0" },
+            headers: { "User-Agent": "big-model-radar/1.0" },
           });
           if (!resp.ok) {
             console.error(`  [hn] "${q}": HTTP ${resp.status}`);

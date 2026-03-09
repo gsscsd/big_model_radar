@@ -74,7 +74,7 @@ function buildMessage(date: string, reports: string[]): string {
 
   const icon = isMonthly ? "📆" : isWeekly ? "📅" : "📡";
   const suffix = isMonthly ? " 月报" : isWeekly ? " 周报" : "";
-  const lines: string[] = [`${icon} <b>agents-radar${suffix} · ${date}</b>\n`];
+  const lines: string[] = [`${icon} <b>Big Model Radar${suffix} · ${date}</b>\n`];
 
   // Daily reports first, then rollups
   const ordered = [

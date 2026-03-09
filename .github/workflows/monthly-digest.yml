@@ -1,4 +1,4 @@
-name: Monthly Agents Radar
+name: Monthly Big Model Radar
 
 on:
   schedule:

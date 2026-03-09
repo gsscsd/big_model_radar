@@ -53,7 +53,7 @@ async function fetchGitHubTrending(): Promise<{ repos: TrendingRepo[]; success: 
   try {
     const resp = await fetch("https://github.com/trending?since=daily&spoken_language_code=", {
       headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; agents-radar/1.0)",
+        "User-Agent": "Mozilla/5.0 (compatible; big-model-radar/1.0)",
         Accept: "text/html",
       },
     });

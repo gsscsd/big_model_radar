@@ -134,7 +134,7 @@ const feedXml =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n` +
   `  <channel>\n` +
-  `    <title>agents-radar</title>\n` +
+  `    <title>Big Model Radar</title>\n` +
   `    <link>${SITE_URL}</link>\n` +
   `    <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>\n` +
   `    <language>zh-CN</language>\n` +

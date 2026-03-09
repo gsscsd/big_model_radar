@@ -1,4 +1,4 @@
-name: Daily Agents Radar
+name: Daily Big Model Radar
 
 on:
   schedule:

@@ -1,4 +1,4 @@
-# agents-radar
+# Big Model Radar
 
 [English](./README.md) | 中文
 
@@ -6,21 +6,21 @@
 
 ## Web UI
 
-**[https://duanyytop.github.io/agents-radar](https://duanyytop.github.io/agents-radar)**
+**[https://gsscsd.github.io/big_model_radar](https://gsscsd.github.io/big_model_radar)**
 
 在线浏览所有历史简报，深色主题，无需登录。报告直接由本仓库的 Markdown 文件通过 GitHub Pages 渲染。每份报告支持中文 / 英文切换。
 
 ## RSS 订阅
 
-**[https://duanyytop.github.io/agents-radar/feed.xml](https://duanyytop.github.io/agents-radar/feed.xml)**
+**[https://gsscsd.github.io/big_model_radar/feed.xml](https://gsscsd.github.io/big_model_radar/feed.xml)**
 
 在任意 RSS 阅读器（Feedly、Reeder、NewsBlur 等）中订阅，每日自动推送新简报。Feed 包含最新 30 条报告（覆盖所有报告类型），与 `manifest.json` 同步更新。
 
 ## MCP Server
 
-**`https://agents-radar-mcp.duanyytop.workers.dev`**
+**`https://big-model-radar-mcp.<your-subdomain>.workers.dev`**
 
-基于 [Model Context Protocol](https://modelcontextprotocol.io) 的托管服务，将 agents-radar 数据暴露为工具接口。任何支持 MCP 的客户端（Claude Desktop、OpenClaw 等）均可直接查询最新 AI 生态报告。
+基于 [Model Context Protocol](https://modelcontextprotocol.io) 的托管服务，将 Big Model Radar 数据暴露为工具接口。任何支持 MCP 的客户端（Claude Desktop、OpenClaw 等）均可直接查询最新 AI 生态报告。
 
 **可用工具：**
 
@@ -36,8 +36,8 @@
 ```json
 {
   "mcpServers": {
-    "agents-radar": {
-      "url": "https://agents-radar-mcp.duanyytop.workers.dev"
+    "big-model-radar": {
+      "url": "https://big-model-radar-mcp.<your-subdomain>.workers.dev"
     }
   }
 }
@@ -51,7 +51,7 @@
 **OpenClaw 接入** — 执行以下命令：
 
 ```bash
-openclaw mcp add --transport http agents-radar https://agents-radar-mcp.duanyytop.workers.dev
+openclaw mcp add --transport http big-model-radar https://big-model-radar-mcp.<your-subdomain>.workers.dev
 ```
 
 或手动编辑 `~/.openclaw/openclaw.json`：
@@ -59,9 +59,9 @@ openclaw mcp add --transport http agents-radar https://agents-radar-mcp.duanyyto
 ```json
 {
   "mcpServers": {
-    "agents-radar": {
+    "big-model-radar": {
       "type": "http",
-      "url": "https://agents-radar-mcp.duanyytop.workers.dev"
+      "url": "https://big-model-radar-mcp.<your-subdomain>.workers.dev"
     }
   }
 }
@@ -194,7 +194,7 @@ openclaw_peers:
 | `OPENAI_API_KEY` | ✅ | 任意 OpenAI 兼容接口的 API 密钥 |
 | `OPENAI_BASE_URL` | 可选 | API 地址覆盖。使用 OpenAI 默认接口可留空，或设置兼容服务地址，如 `https://api.openai.com/v1` |
 | `OPENAI_MODEL` | 可选 | 传给 `chat/completions` 的模型名，例如 `gpt-4.1-mini` |
-| `PAGES_URL` | 建议配置 | 站点公开地址，例如 `https://your-user.github.io/agents-radar`。建议放在仓库 Variables 中 |
+| `PAGES_URL` | 建议配置 | 站点公开地址，例如 `https://your-user.github.io/big_model_radar`。建议放在仓库 Variables 中 |
 | `TELEGRAM_BOT_TOKEN` | 可选 | Telegram bot token，从 [@BotFather](https://t.me/BotFather) 获取。设置后每次 digest 完成自动推送通知 |
 | `TELEGRAM_CHAT_ID` | 可选 | 接收通知的 Telegram 频道 / 群组 / 用户 ID。启用 Telegram 推送时必须配置 |
 
@@ -216,7 +216,7 @@ openclaw_peers:
 
 在 **Actions** 标签页中确认工作流已启用。
 
-如需立即测试，进入 **Actions → Daily Agents Radar → Run workflow** 手动触发。
+如需立即测试，进入 **Actions → Daily Big Model Radar → Run workflow** 手动触发。
 
 > **首次运行说明**：网页内容步骤将抓取最多 50 篇文章（每站 25 篇），可能需要额外几分钟。后续运行仅处理新内容，速度更快。
 
@@ -229,7 +229,7 @@ export GITHUB_TOKEN=ghp_xxxxx
 export OPENAI_BASE_URL=https://api.openai.com/v1
 export OPENAI_API_KEY=sk-xxxxxxxx
 export OPENAI_MODEL=gpt-4.1-mini
-export DIGEST_REPO=your-username/agents-radar  # 可选，留空则仅写入本地文件
+export DIGEST_REPO=your-username/big_model_radar  # 可选，留空则仅写入本地文件
 
 pnpm start
 ```
@@ -349,4 +349,4 @@ OpenAI 内容精选            (research / release / company / safety / ...)
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=duanyytop/agents-radar&type=Date)](https://star-history.com/#duanyytop/agents-radar&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=gsscsd/big_model_radar&type=Date)](https://star-history.com/#gsscsd/big_model_radar&Date)

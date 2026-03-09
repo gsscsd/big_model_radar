@@ -107,7 +107,7 @@ const FETCH_TIMEOUT_MS = 10_000;
 // ---------------------------------------------------------------------------
 
 const WEB_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (compatible; agents-radar/1.0; +https://github.com/search?q=agents-radar)",
+  "User-Agent": "Mozilla/5.0 (compatible; big-model-radar/1.0; +https://github.com/search?q=big_model_radar)",
   Accept: "text/html,application/xml,text/xml,*/*",
   "Accept-Language": "en-US,en;q=0.9",
 };

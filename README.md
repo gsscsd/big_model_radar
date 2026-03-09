@@ -1,4 +1,4 @@
-# agents-radar
+# Big Model Radar
 
 English | [中文](./README.zh.md)
 
@@ -6,21 +6,21 @@ A GitHub Actions workflow that runs every morning at 08:00 CST. It tracks GitHub
 
 ## Web UI
 
-**[https://duanyytop.github.io/agents-radar](https://duanyytop.github.io/agents-radar)**
+**[https://gsscsd.github.io/big_model_radar](https://gsscsd.github.io/big_model_radar)**
 
 Browse all historical digests in a clean, dark-themed interface — no login required. Reports are rendered from the Markdown files in this repo via GitHub Pages.
 
 ## RSS Feed
 
-**[https://duanyytop.github.io/agents-radar/feed.xml](https://duanyytop.github.io/agents-radar/feed.xml)**
+**[https://gsscsd.github.io/big_model_radar/feed.xml](https://gsscsd.github.io/big_model_radar/feed.xml)**
 
 Subscribe in any RSS reader (Feedly, Reeder, NewsBlur, etc.) to receive new digests automatically. The feed includes the latest 30 reports across all report types, updated daily alongside `manifest.json`.
 
 ## MCP Server
 
-**`https://agents-radar-mcp.duanyytop.workers.dev`**
+**`https://big-model-radar-mcp.<your-subdomain>.workers.dev`**
 
-A hosted [Model Context Protocol](https://modelcontextprotocol.io) server that exposes agents-radar data as tools. Any MCP-compatible client (Claude Desktop, OpenClaw, etc.) can query the latest AI ecosystem reports directly.
+A hosted [Model Context Protocol](https://modelcontextprotocol.io) server that exposes Big Model Radar data as tools. Any MCP-compatible client (Claude Desktop, OpenClaw, etc.) can query the latest AI ecosystem reports directly.
 
 **Available tools:**
 
@@ -36,8 +36,8 @@ A hosted [Model Context Protocol](https://modelcontextprotocol.io) server that e
 ```json
 {
   "mcpServers": {
-    "agents-radar": {
-      "url": "https://agents-radar-mcp.duanyytop.workers.dev"
+    "big-model-radar": {
+      "url": "https://big-model-radar-mcp.<your-subdomain>.workers.dev"
     }
   }
 }
@@ -51,7 +51,7 @@ Restart Claude Desktop after saving. You can then ask Claude things like:
 **OpenClaw setup** — run the following command:
 
 ```bash
-openclaw mcp add --transport http agents-radar https://agents-radar-mcp.duanyytop.workers.dev
+openclaw mcp add --transport http big-model-radar https://big-model-radar-mcp.<your-subdomain>.workers.dev
 ```
 
 Or add it manually to `~/.openclaw/openclaw.json`:
@@ -59,9 +59,9 @@ Or add it manually to `~/.openclaw/openclaw.json`:
 ```json
 {
   "mcpServers": {
-    "agents-radar": {
+    "big-model-radar": {
       "type": "http",
-      "url": "https://agents-radar-mcp.duanyytop.workers.dev"
+      "url": "https://big-model-radar-mcp.<your-subdomain>.workers.dev"
     }
   }
 }
@@ -194,7 +194,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 | `OPENAI_API_KEY` | ✅ | API key for any OpenAI-compatible endpoint |
 | `OPENAI_BASE_URL` | optional | API endpoint override. Leave unset for OpenAI, or set a compatible provider URL such as `https://api.openai.com/v1` |
 | `OPENAI_MODEL` | optional | Model name passed to `chat/completions`, e.g. `gpt-4.1-mini` |
-| `PAGES_URL` | recommended | Public site base URL, e.g. `https://your-user.github.io/agents-radar`. Prefer a repository variable for this |
+| `PAGES_URL` | recommended | Public site base URL, e.g. `https://your-user.github.io/big_model_radar`. Prefer a repository variable for this |
 | `TELEGRAM_BOT_TOKEN` | optional | Telegram bot token from [@BotFather](https://t.me/BotFather). If set, a message is sent after each digest run |
 | `TELEGRAM_CHAT_ID` | optional | Telegram chat/channel/group ID to send notifications to. Required if you enable Telegram notifications |
 
@@ -216,7 +216,7 @@ Go to **Settings → Secrets and variables → Actions** and add:
 
 Confirm the workflow is enabled in the **Actions** tab.
 
-To test immediately, go to **Actions → Daily Agents Radar → Run workflow**.
+To test immediately, go to **Actions → Daily Big Model Radar → Run workflow**.
 
 > **First run note**: The web content step will fetch up to 50 articles (25 per site) and may take a few extra minutes. Subsequent runs are fast — only new articles are processed.
 
@@ -229,7 +229,7 @@ export GITHUB_TOKEN=ghp_xxxxx
 export OPENAI_BASE_URL=https://api.openai.com/v1
 export OPENAI_API_KEY=sk-xxxxxxxx
 export OPENAI_MODEL=gpt-4.1-mini
-export DIGEST_REPO=your-username/agents-radar  # optional; omit to only write files
+export DIGEST_REPO=your-username/big_model_radar  # optional; omit to only write files
 
 pnpm start
 ```
@@ -372,4 +372,4 @@ To change the schedule, edit the cron expressions in the corresponding workflow 
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=duanyytop/agents-radar&type=Date)](https://star-history.com/#duanyytop/agents-radar&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=gsscsd/big_model_radar&type=Date)](https://star-history.com/#gsscsd/big_model_radar&Date)
