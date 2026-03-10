@@ -194,6 +194,7 @@ openclaw_peers:
 | `OPENAI_API_KEY` | ✅ | 任意 OpenAI 兼容接口的 API 密钥 |
 | `OPENAI_BASE_URL` | 可选 | API 地址覆盖。使用 OpenAI 默认接口可留空，或设置兼容服务地址，如 `https://api.openai.com/v1` |
 | `OPENAI_MODEL` | 可选 | 传给 `chat/completions` 的模型名，例如 `gpt-4.1-mini` |
+| `REPORT_LANGS` | 可选 | 报告语言，例如 `zh` 或 `zh,en`（默认：`zh`） |
 | `PAGES_URL` | 建议配置 | 站点公开地址，例如 `https://your-user.github.io/big_model_radar`。建议放在仓库 Variables 中 |
 | `TELEGRAM_BOT_TOKEN` | 可选 | Telegram bot token，从 [@BotFather](https://t.me/BotFather) 获取。设置后每次 digest 完成自动推送通知 |
 | `TELEGRAM_CHAT_ID` | 可选 | 接收通知的 Telegram 频道 / 群组 / 用户 ID。启用 Telegram 推送时必须配置 |
@@ -229,6 +230,7 @@ export GITHUB_TOKEN=ghp_xxxxx
 export OPENAI_BASE_URL=https://api.openai.com/v1
 export OPENAI_API_KEY=sk-xxxxxxxx
 export OPENAI_MODEL=gpt-4.1-mini
+export REPORT_LANGS=zh
 export DIGEST_REPO=your-username/big_model_radar  # 可选，留空则仅写入本地文件
 
 pnpm start

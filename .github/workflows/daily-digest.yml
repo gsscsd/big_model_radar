@@ -39,6 +39,7 @@ jobs:
           OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL || secrets.ANTHROPIC_BASE_URL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || secrets.ANTHROPIC_API_KEY }}
           OPENAI_MODEL: ${{ secrets.OPENAI_MODEL || secrets.ANTHROPIC_MODEL }}
+          REPORT_LANGS: ${{ vars.REPORT_LANGS || secrets.REPORT_LANGS }}
           DIGEST_REPO: ${{ github.repository }}
         run: pnpm start
 
@@ -60,6 +61,7 @@ jobs:
         env:
           DIGEST_REPO: ${{ github.repository }}
           PAGES_URL: ${{ vars.PAGES_URL || secrets.PAGES_URL }}
+          REPORT_LANGS: ${{ vars.REPORT_LANGS || secrets.REPORT_LANGS }}
         run: pnpm manifest
 
       - name: Commit manifest and feed
@@ -77,4 +79,5 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           DIGEST_REPO: ${{ github.repository }}
           PAGES_URL: ${{ vars.PAGES_URL || secrets.PAGES_URL }}
+          REPORT_LANGS: ${{ vars.REPORT_LANGS || secrets.REPORT_LANGS }}
         run: pnpm notify

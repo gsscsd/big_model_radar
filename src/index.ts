@@ -549,6 +549,15 @@ async function main(): Promise<void> {
 
   console.log(`[${now.toISOString()}] Starting digest | endpoint: ${getLlmBaseUrl()}`);
 
+  const langs = (process.env["REPORT_LANGS"] ?? "zh")
+    .split(",")
+    .map((s) => s.trim().toLowerCase())
+    .filter((s) => s === "zh" || s === "en");
+  const enabledLangs = langs.length > 0 ? langs : ["zh"];
+  const genZh = enabledLangs.includes("zh");
+  const genEn = enabledLangs.includes("en");
+  console.log(`  Languages: ${enabledLangs.join(", ")}`);
+
   // 1. Fetch all data in parallel
   const webState = loadWebState();
   const { fetched, skillsData, webResults, trendingData, hnData } = await fetchAllData(since, webState);
@@ -558,129 +567,175 @@ async function main(): Promise<void> {
   const fetchedOpenclaw = fetched.find((f) => f.cfg.id === OPENCLAW.id)!;
   const fetchedPeers = fetched.filter((f) => peerIds.has(f.cfg.id));
 
-  // 2. Generate per-repo LLM summaries in parallel (zh + en simultaneously)
-  console.log("  Generating summaries in ZH and EN in parallel...");
-  const [zhSummaries, enSummaries] = await Promise.all([
-    generateSummaries(fetchedCli, fetchedOpenclaw, skillsData, fetchedPeers, trendingData, dateStr, "zh"),
-    generateSummaries(fetchedCli, fetchedOpenclaw, skillsData, fetchedPeers, trendingData, dateStr, "en"),
+  // 2. Generate per-repo LLM summaries per language
+  let zhSummaries: Awaited<ReturnType<typeof generateSummaries>> | undefined;
+  let enSummaries: Awaited<ReturnType<typeof generateSummaries>> | undefined;
+  await Promise.all([
+    genZh
+      ? generateSummaries(
+          fetchedCli,
+          fetchedOpenclaw,
+          skillsData,
+          fetchedPeers,
+          trendingData,
+          dateStr,
+          "zh",
+        ).then((r) => (zhSummaries = r))
+      : Promise.resolve(),
+    genEn
+      ? generateSummaries(
+          fetchedCli,
+          fetchedOpenclaw,
+          skillsData,
+          fetchedPeers,
+          trendingData,
+          dateStr,
+          "en",
+        ).then((r) => (enSummaries = r))
+      : Promise.resolve(),
   ]);
 
-  // 3. Generate cross-repo comparisons in parallel (zh + en)
-  console.log("  Calling LLM for comparative analyses (ZH + EN)...");
-  const openclawDigest: RepoDigest = {
-    config: OPENCLAW,
-    issues: fetchedOpenclaw.issues,
-    prs: fetchedOpenclaw.prs,
-    releases: fetchedOpenclaw.releases,
-    summary: zhSummaries.openclawSummary,
-  };
-  const enOpenclawDigest: RepoDigest = {
-    config: OPENCLAW,
-    issues: fetchedOpenclaw.issues,
-    prs: fetchedOpenclaw.prs,
-    releases: fetchedOpenclaw.releases,
-    summary: enSummaries.openclawSummary,
-  };
-  const [comparison, peersComparison, enComparison, enPeersComparison] = await Promise.all([
-    callLlm(buildComparisonPrompt(zhSummaries.cliDigests, dateStr, "zh")),
-    callLlm(buildPeersComparisonPrompt(openclawDigest, zhSummaries.peerDigests, dateStr, "zh")),
-    callLlm(buildComparisonPrompt(enSummaries.cliDigests, dateStr, "en")),
-    callLlm(buildPeersComparisonPrompt(enOpenclawDigest, enSummaries.peerDigests, dateStr, "en")),
-  ]);
+  // 3. Generate cross-repo comparisons per language
+  let comparison = "";
+  let peersComparison = "";
+  let enComparison = "";
+  let enPeersComparison = "";
+  if (genZh && zhSummaries) {
+    const openclawDigest: RepoDigest = {
+      config: OPENCLAW,
+      issues: fetchedOpenclaw.issues,
+      prs: fetchedOpenclaw.prs,
+      releases: fetchedOpenclaw.releases,
+      summary: zhSummaries.openclawSummary,
+    };
+    [comparison, peersComparison] = await Promise.all([
+      callLlm(buildComparisonPrompt(zhSummaries.cliDigests, dateStr, "zh")),
+      callLlm(buildPeersComparisonPrompt(openclawDigest, zhSummaries.peerDigests, dateStr, "zh")),
+    ]);
+  }
+  if (genEn && enSummaries) {
+    const enOpenclawDigest: RepoDigest = {
+      config: OPENCLAW,
+      issues: fetchedOpenclaw.issues,
+      prs: fetchedOpenclaw.prs,
+      releases: fetchedOpenclaw.releases,
+      summary: enSummaries.openclawSummary,
+    };
+    [enComparison, enPeersComparison] = await Promise.all([
+      callLlm(buildComparisonPrompt(enSummaries.cliDigests, dateStr, "en")),
+      callLlm(buildPeersComparisonPrompt(enOpenclawDigest, enSummaries.peerDigests, dateStr, "en")),
+    ]);
+  }
 
   const footer = autoGenFooter("zh");
   const enFooter = autoGenFooter("en");
 
   // 4. Build + save all reports
-  const digestContent = buildCliReportContent(
-    zhSummaries.cliDigests,
-    zhSummaries.skillsSummary,
-    comparison,
-    utcStr,
-    dateStr,
-    footer,
-    "zh",
-  );
-  const openclawContent = buildOpenclawReportContent(
-    fetchedOpenclaw,
-    zhSummaries.peerDigests,
-    zhSummaries.openclawSummary,
-    peersComparison,
-    utcStr,
-    dateStr,
-    footer,
-    "zh",
-  );
-  const enDigestContent = buildCliReportContent(
-    enSummaries.cliDigests,
-    enSummaries.skillsSummary,
-    enComparison,
-    utcStr,
-    dateStr,
-    enFooter,
-    "en",
-  );
-  const enOpenclawContent = buildOpenclawReportContent(
-    fetchedOpenclaw,
-    enSummaries.peerDigests,
-    enSummaries.openclawSummary,
-    enPeersComparison,
-    utcStr,
-    dateStr,
-    enFooter,
-    "en",
-  );
-
-  console.log(`  Saved ${saveFile(digestContent, dateStr, "ai-cli.md")}`);
-  console.log(`  Saved ${saveFile(openclawContent, dateStr, "ai-agents.md")}`);
-  console.log(`  Saved ${saveFile(enDigestContent, dateStr, "ai-cli-en.md")}`);
-  console.log(`  Saved ${saveFile(enOpenclawContent, dateStr, "ai-agents-en.md")}`);
-
-  // Web report: zh saves state, en skips state save
-  await saveWebReport(webResults, webState, utcStr, dateStr, digestRepo, footer, "zh");
-  await saveWebReport(webResults, webState, utcStr, dateStr, digestRepo, enFooter, "en");
-
-  await Promise.all([
-    saveTrendingReport(trendingData, zhSummaries.trendingSummary, utcStr, dateStr, digestRepo, footer, "zh"),
-    saveTrendingReport(
-      trendingData,
-      enSummaries.trendingSummary,
+  if (genZh && zhSummaries) {
+    const digestContent = buildCliReportContent(
+      zhSummaries.cliDigests,
+      zhSummaries.skillsSummary,
+      comparison,
       utcStr,
       dateStr,
-      digestRepo,
+      footer,
+      "zh",
+    );
+    const openclawContent = buildOpenclawReportContent(
+      fetchedOpenclaw,
+      zhSummaries.peerDigests,
+      zhSummaries.openclawSummary,
+      peersComparison,
+      utcStr,
+      dateStr,
+      footer,
+      "zh",
+    );
+    console.log(`  Saved ${saveFile(digestContent, dateStr, "ai-cli.md")}`);
+    console.log(`  Saved ${saveFile(openclawContent, dateStr, "ai-agents.md")}`);
+    if (digestRepo) {
+      const cliUrl = await createGitHubIssue(
+        `📊 AI CLI 工具社区动态日报 ${dateStr}`,
+        digestContent,
+        "digest",
+      );
+      console.log(`  Created CLI issue (zh): ${cliUrl}`);
+      const openclawUrl = await createGitHubIssue(
+        `🦞 OpenClaw 生态日报 ${dateStr}`,
+        openclawContent,
+        "openclaw",
+      );
+      console.log(`  Created OpenClaw issue (zh): ${openclawUrl}`);
+    }
+  }
+  if (genEn && enSummaries) {
+    const enDigestContent = buildCliReportContent(
+      enSummaries.cliDigests,
+      enSummaries.skillsSummary,
+      enComparison,
+      utcStr,
+      dateStr,
       enFooter,
       "en",
-    ),
-    saveHnReport(hnData, utcStr, dateStr, digestRepo, footer, "zh"),
-    saveHnReport(hnData, utcStr, dateStr, digestRepo, enFooter, "en"),
-  ]);
-
-  // 5. Create GitHub issues for CLI + OpenClaw (zh + en)
-  if (digestRepo) {
-    const cliUrl = await createGitHubIssue(`📊 AI CLI 工具社区动态日报 ${dateStr}`, digestContent, "digest");
-    console.log(`  Created CLI issue (zh): ${cliUrl}`);
-
-    const cliEnUrl = await createGitHubIssue(
-      `📊 AI CLI Tools Digest ${dateStr}`,
-      enDigestContent,
-      "digest-en",
     );
-    console.log(`  Created CLI issue (en): ${cliEnUrl}`);
-
-    const openclawUrl = await createGitHubIssue(
-      `🦞 OpenClaw 生态日报 ${dateStr}`,
-      openclawContent,
-      "openclaw",
+    const enOpenclawContent = buildOpenclawReportContent(
+      fetchedOpenclaw,
+      enSummaries.peerDigests,
+      enSummaries.openclawSummary,
+      enPeersComparison,
+      utcStr,
+      dateStr,
+      enFooter,
+      "en",
     );
-    console.log(`  Created OpenClaw issue (zh): ${openclawUrl}`);
-
-    const openclawEnUrl = await createGitHubIssue(
-      `🦞 OpenClaw Ecosystem Digest ${dateStr}`,
-      enOpenclawContent,
-      "openclaw-en",
-    );
-    console.log(`  Created OpenClaw issue (en): ${openclawEnUrl}`);
+    console.log(`  Saved ${saveFile(enDigestContent, dateStr, "ai-cli-en.md")}`);
+    console.log(`  Saved ${saveFile(enOpenclawContent, dateStr, "ai-agents-en.md")}`);
+    if (digestRepo) {
+      const cliEnUrl = await createGitHubIssue(
+        `📊 AI CLI Tools Digest ${dateStr}`,
+        enDigestContent,
+        "digest-en",
+      );
+      console.log(`  Created CLI issue (en): ${cliEnUrl}`);
+      const openclawEnUrl = await createGitHubIssue(
+        `🦞 OpenClaw Ecosystem Digest ${dateStr}`,
+        enOpenclawContent,
+        "openclaw-en",
+      );
+      console.log(`  Created OpenClaw issue (en): ${openclawEnUrl}`);
+    }
   }
+
+  // Web report: zh saves state, en skips state save
+  if (genZh) await saveWebReport(webResults, webState, utcStr, dateStr, digestRepo, footer, "zh");
+  if (genEn) await saveWebReport(webResults, webState, utcStr, dateStr, digestRepo, enFooter, "en");
+
+  await Promise.all([
+    genZh && zhSummaries
+      ? saveTrendingReport(
+          trendingData,
+          zhSummaries.trendingSummary,
+          utcStr,
+          dateStr,
+          digestRepo,
+          footer,
+          "zh",
+        )
+      : Promise.resolve(),
+    genEn && enSummaries
+      ? saveTrendingReport(
+          trendingData,
+          enSummaries.trendingSummary,
+          utcStr,
+          dateStr,
+          digestRepo,
+          enFooter,
+          "en",
+        )
+      : Promise.resolve(),
+    genZh ? saveHnReport(hnData, utcStr, dateStr, digestRepo, footer, "zh") : Promise.resolve(),
+    genEn ? saveHnReport(hnData, utcStr, dateStr, digestRepo, enFooter, "en") : Promise.resolve(),
+  ]);
 
   console.log("Done!");
 }
