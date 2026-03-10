@@ -1,6 +1,6 @@
 {
   "anthropic": {
-    "lastChecked": "2026-03-10T01:22:58.678Z",
+    "lastChecked": "2026-03-10T04:23:34.056Z",
     "seenUrls": {
       "https://www.anthropic.com/news/responsible-scaling-policy-v3": "2026-02-25T23:57:06.000Z",
       "https://www.anthropic.com/research/deprecation-updates-opus-3": "2026-02-25T20:58:11.000Z",
@@ -321,7 +321,7 @@
     }
   },
   "openai": {
-    "lastChecked": "2026-03-10T01:22:50.271Z",
+    "lastChecked": "2026-03-10T04:23:36.150Z",
     "seenUrls": {
       "https://openai.com/index/arvind-kc-chief-people-officer/": "2026-03-09T14:53:52.834Z",
       "https://openai.com/index/put-ai-to-work-for-your-product-team/": "2026-03-09T12:05:20.343Z",
@@ -388,9 +388,9 @@
       "https://openai.com/index/harness-engineering/": "2026-03-03T20:37:42.680Z",
       "https://openai.com/index/first-proof-submissions/": "2026-03-08T15:10:34.607Z",
       "https://openai.com/index/confidence-building-measures-for-artificial-intelligence/": "2026-03-09T14:29:05.460Z",
-      "https://openai.com/research/index/": "2026-03-09T14:28:38.422Z",
+      "https://openai.com/research/index/": "2026-03-10T02:51:28.818Z",
       "https://openai.com/news/research/": "2026-03-09T14:26:32.314Z",
-      "https://openai.com/index/new-result-theoretical-physics/": "2026-03-10T01:21:36.669Z",
+      "https://openai.com/index/new-result-theoretical-physics/": "2026-03-10T04:20:39.344Z",
       "https://openai.com/index/advancing-independent-research-ai-alignment/": "2026-02-24T00:48:52.099Z",
       "https://openai.com/index/introducing-deep-research/": "2026-02-23T18:54:57.693Z",
       "https://openai.com/index/sora-2/": "2026-03-08T15:41:31.528Z",
@@ -405,9 +405,9 @@
       "https://openai.com/index/how-confessions-can-keep-language-models-honest/": "2026-03-09T14:27:53.095Z",
       "https://openai.com/index/introducing-gpt-5-2/": "2026-03-05T04:12:06.186Z",
       "https://openai.com/index/how-people-are-using-chatgpt/": "2026-03-07T10:17:21.380Z",
-      "https://openai.com/research/index/publication/": "2026-03-09T14:29:21.046Z",
-      "https://openai.com/research/index/milestone/": "2026-03-09T14:28:31.436Z",
-      "https://openai.com/research/index/release/": "2026-03-09T14:27:21.101Z",
+      "https://openai.com/research/index/publication/": "2026-03-10T02:51:25.341Z",
+      "https://openai.com/research/index/milestone/": "2026-03-10T02:51:13.272Z",
+      "https://openai.com/research/index/release/": "2026-03-10T02:51:31.500Z",
       "https://openai.com/index/video-generation-models-as-world-simulators/": "2026-03-09T14:29:28.370Z",
       "https://openai.com/index/dall-e-3-system-card/": "2026-03-09T14:26:27.035Z",
       "https://openai.com/index/gpt-4v-system-card/": "2026-03-09T14:28:31.906Z",
@@ -669,7 +669,7 @@
       "https://openai.com/index/introducing-activation-atlases/": "2026-03-09T14:33:34.293Z",
       "https://openai.com/index/navigating-the-challenges-and-opportunities-of-synthetic-voices/": "2026-03-08T14:46:30.170Z",
       "https://openai.com/index/a-holistic-approach-to-undesired-content-detection-in-the-real-world/": "2026-03-09T14:29:00.237Z",
-      "https://openai.com/index/introducing-openai-frontier/": "2026-03-09T08:09:45.756Z",
+      "https://openai.com/index/introducing-openai-frontier/": "2026-03-10T04:10:45.374Z",
       "https://openai.com/index/gpt-5-2-codex-system-card/": "2026-02-27T19:20:06.658Z",
       "https://openai.com/global-affairs/response-to-nist-executive-order-on-ai/": "2026-03-08T14:50:29.790Z",
       "https://openai.com/index/openai-raising-concerns-policy/": "2026-03-08T14:46:56.345Z",
@@ -702,7 +702,7 @@
       "https://openai.com/index/expanding-on-how-voice-engine-works-and-our-safety-research/": "2026-03-08T14:50:25.204Z",
       "https://openai.com/index/update-on-safety-and-security-practices/": "2026-03-08T14:45:40.800Z",
       "https://openai.com/index/upgrading-the-moderation-api-with-our-new-multimodal-moderation-model/": "2026-03-08T14:55:35.524Z",
-      "https://openai.com/index/more-enterprise-grade-features-for-api-customers/": "2026-03-09T01:04:42.412Z",
+      "https://openai.com/index/more-enterprise-grade-features-for-api-customers/": "2026-03-10T02:49:52.100Z",
       "https://openai.com/index/simplifying-stabilizing-and-scaling-continuous-time-consistency-models/": "2026-03-09T14:30:03.285Z",
       "https://openai.com/global-affairs/openai-chief-compliance-officer-announcement/": "2026-03-08T14:44:50.485Z",
       "https://openai.com/index/introducing-simpleqa/": "2026-03-10T00:39:42.464Z",
@@ -938,16 +938,16 @@
       "https://openai.com/index/amazon-partnership/": "2026-03-09T14:52:03.872Z",
       "https://openai.com/index/scaling-ai-for-everyone/": "2026-03-09T14:52:23.151Z",
       "https://openai.com/index/introducing-the-stateful-runtime-environment-for-agents-in-amazon-bedrock/": "2026-03-09T14:51:53.596Z",
-      "https://openai.com/index/our-agreement-with-the-department-of-war/": "2026-03-10T01:05:45.726Z",
+      "https://openai.com/index/our-agreement-with-the-department-of-war/": "2026-03-10T01:48:37.413Z",
       "https://openai.com/index/gpt-5-3-instant/": "2026-03-05T18:10:59.079Z",
       "https://openai.com/index/gpt-5-3-instant-system-card/": "2026-03-03T17:55:51.461Z",
-      "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons/": "2026-03-10T01:21:30.573Z",
+      "https://openai.com/index/extending-single-minus-amplitudes-to-gravitons/": "2026-03-10T04:20:31.516Z",
       "https://openai.com/index/introducing-gpt-5-4/": "2026-03-09T13:46:21.268Z",
       "https://openai.com/index/reasoning-models-chain-of-thought-controllability/": "2026-03-09T17:59:45.579Z",
-      "https://openai.com/index/chatgpt-for-excel/": "2026-03-10T00:58:06.946Z",
+      "https://openai.com/index/chatgpt-for-excel/": "2026-03-10T03:22:03.762Z",
       "https://openai.com/index/gpt-5-4-thinking-system-card/": "2026-03-05T18:06:51.384Z",
       "https://openai.com/index/codex-security-now-in-research-preview/": "2026-03-09T22:57:53.836Z",
-      "https://openai.com/index/openai-to-acquire-promptfoo/": "2026-03-10T01:16:44.401Z"
+      "https://openai.com/index/openai-to-acquire-promptfoo/": "2026-03-10T02:51:17.953Z"
     }
   }
 }
