@@ -6,7 +6,42 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://gsscsd.github.io/big_model_radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 24 Apr 2026 01:22:41 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 01:16:09 +0000</lastBuildDate>
+    <item>
+      <title>AI CLI 工具社区动态日报 2026-04-25</title>
+      <link>https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-cli</link>
+      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-cli</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <description>AI CLI 工具社区动态日报 2026-04-25</description>
+    </item>
+    <item>
+      <title>AI Agents 生态日报 2026-04-25</title>
+      <link>https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-agents</link>
+      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-agents</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <description>AI Agents 生态日报 2026-04-25</description>
+    </item>
+    <item>
+      <title>AI 官方内容追踪报告 2026-04-25</title>
+      <link>https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-web</link>
+      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-web</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <description>AI 官方内容追踪报告 2026-04-25</description>
+    </item>
+    <item>
+      <title>AI 开源趋势日报 2026-04-25</title>
+      <link>https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-trending</link>
+      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-trending</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <description>AI 开源趋势日报 2026-04-25</description>
+    </item>
+    <item>
+      <title>Hacker News AI 社区动态日报 2026-04-25</title>
+      <link>https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-hn</link>
+      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-25/ai-hn</guid>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Hacker News AI 社区动态日报 2026-04-25</description>
+    </item>
     <item>
       <title>AI CLI 工具社区动态日报 2026-04-24</title>
       <link>https://gsscsd.github.io/big_model_radar/#2026-04-24/ai-cli</link>
@@ -181,41 +216,6 @@
       <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-20/ai-hn</guid>
       <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
       <description>Hacker News AI 社区动态日报 2026-04-20</description>
-    </item>
-    <item>
-      <title>AI 工具生态周报 2026-04-20</title>
-      <link>https://gsscsd.github.io/big_model_radar/#2026-04-20/ai-weekly</link>
-      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-20/ai-weekly</guid>
-      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
-      <description>AI 工具生态周报 2026-04-20</description>
-    </item>
-    <item>
-      <title>AI CLI 工具社区动态日报 2026-04-19</title>
-      <link>https://gsscsd.github.io/big_model_radar/#2026-04-19/ai-cli</link>
-      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-19/ai-cli</guid>
-      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
-      <description>AI CLI 工具社区动态日报 2026-04-19</description>
-    </item>
-    <item>
-      <title>AI Agents 生态日报 2026-04-19</title>
-      <link>https://gsscsd.github.io/big_model_radar/#2026-04-19/ai-agents</link>
-      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-19/ai-agents</guid>
-      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
-      <description>AI Agents 生态日报 2026-04-19</description>
-    </item>
-    <item>
-      <title>AI 官方内容追踪报告 2026-04-19</title>
-      <link>https://gsscsd.github.io/big_model_radar/#2026-04-19/ai-web</link>
-      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-19/ai-web</guid>
-      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
-      <description>AI 官方内容追踪报告 2026-04-19</description>
-    </item>
-    <item>
-      <title>AI 开源趋势日报 2026-04-19</title>
-      <link>https://gsscsd.github.io/big_model_radar/#2026-04-19/ai-trending</link>
-      <guid isPermaLink="true">https://gsscsd.github.io/big_model_radar/#2026-04-19/ai-trending</guid>
-      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
-      <description>AI 开源趋势日报 2026-04-19</description>
     </item>
   </channel>
 </rss>
