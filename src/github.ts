@@ -187,9 +187,20 @@ const TRUNCATION_NOTICE = "\n\n---\n> ⚠️ 内容超过 GitHub Issue 上限，
 function defangGitHubNotifications(body: string): string {
   return body
     .replace(
-      /https?:\/\/(?:www\.)?github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)\/(issues|pull)\/(\d+)/g,
-      (_match, owner: string, repo: string, type: string, number: string) =>
-        `github[.]com/${owner}/${repo}/${type}/${number}`,
+      /https?:\/\/(?:www\.)?github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/(?:issues|pull)\/\d+(?:[/?#][^\s`<>"']*)?/g,
+      (match: string) => {
+        const trailingPunctuationMatch = match.match(/[),.!?:;]+$/);
+        const trailingPunctuation = trailingPunctuationMatch?.[0] ?? "";
+        const urlWithoutTrailingPunctuation = trailingPunctuation
+          ? match.slice(0, -trailingPunctuation.length)
+          : match;
+        return (
+          urlWithoutTrailingPunctuation.replace(
+            /^https?:\/\/(?:www\.)?github\.com/,
+            "github[.]com",
+          ) + trailingPunctuation
+        );
+      },
     )
     .replace(/\b([A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+)#(\d+)\b/g, "`$1#$2`")
     .replace(/(^|[^\w`])@([A-Za-z0-9-]{1,39})\b/g, "$1@\u200B$2");
