@@ -16,6 +16,8 @@ Browse all historical digests in a clean, dark-themed interface — no login req
 
 Subscribe in any RSS reader (Feedly, Reeder, NewsBlur, etc.) to receive new digests automatically. The feed includes the latest 30 reports across all report types, updated daily alongside `manifest.json`.
 
+GitHub Issues are posted with upstream GitHub issue/PR links defanged to avoid creating mention/backreference noise in tracked project repositories. The committed Markdown reports and Web UI keep the normal source links.
+
 ## MCP Server
 
 **`https://big-model-radar-mcp.<your-subdomain>.workers.dev`**
