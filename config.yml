@@ -74,12 +74,18 @@ openclaw_peers:
   - id: moltis
     repo: moltis-org/moltis
     name: Moltis
-  - id: copaw
-    repo: agentscope-ai/CoPaw
-    name: CoPaw
+  - id: qwenpaw
+    repo: agentscope-ai/QwenPaw
+    name: QwenPaw
   - id: zeptoclaw
     repo: qhkm/zeptoclaw
     name: ZeptoClaw
   - id: easyclaw
     repo: gaoyangz77/easyclaw
     name: EasyClaw
+  - id: librefang
+    repo: librefang/librefang
+    name: librefang
+  - id: openfang
+    repo: RightNow-AI/openfang
+    name: openfang
