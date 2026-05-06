@@ -59,6 +59,10 @@ openclaw_peers:
     repo: sipeed/picoclaw
     name: PicoClaw
     paginated: true
+  - id: hermesagent
+    repo: NousResearch/hermes-agent
+    name: hermesagent
+    paginated: true
   - id: nanoclaw
     repo: qwibitai/nanoclaw
     name: NanoClaw
