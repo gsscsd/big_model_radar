@@ -6,7 +6,42 @@
     <description>AI 开源生态每日简报 · Daily AI ecosystem digest</description>
     <language>zh-CN</language>
     <atom:link href="https://ivanweng2077.github.io/big_model_radar/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 10 May 2026 02:37:50 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2026 02:49:33 +0000</lastBuildDate>
+    <item>
+      <title>AI CLI 工具社区动态日报 2026-05-11</title>
+      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-cli</link>
+      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-cli</guid>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+      <description>AI CLI 工具社区动态日报 2026-05-11</description>
+    </item>
+    <item>
+      <title>AI Agents 生态日报 2026-05-11</title>
+      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-agents</link>
+      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-agents</guid>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+      <description>AI Agents 生态日报 2026-05-11</description>
+    </item>
+    <item>
+      <title>AI 官方内容追踪报告 2026-05-11</title>
+      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-web</link>
+      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-web</guid>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+      <description>AI 官方内容追踪报告 2026-05-11</description>
+    </item>
+    <item>
+      <title>AI 开源趋势日报 2026-05-11</title>
+      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-trending</link>
+      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-trending</guid>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+      <description>AI 开源趋势日报 2026-05-11</description>
+    </item>
+    <item>
+      <title>Hacker News AI 社区动态日报 2026-05-11</title>
+      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-hn</link>
+      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-11/ai-hn</guid>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+      <description>Hacker News AI 社区动态日报 2026-05-11</description>
+    </item>
     <item>
       <title>AI CLI 工具社区动态日报 2026-05-10</title>
       <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-10/ai-cli</link>
@@ -181,41 +216,6 @@
       <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-06/ai-hn</guid>
       <pubDate>Wed, 06 May 2026 00:00:00 +0000</pubDate>
       <description>Hacker News AI 社区动态日报 2026-05-06</description>
-    </item>
-    <item>
-      <title>AI CLI 工具社区动态日报 2026-05-05</title>
-      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-cli</link>
-      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-cli</guid>
-      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
-      <description>AI CLI 工具社区动态日报 2026-05-05</description>
-    </item>
-    <item>
-      <title>AI Agents 生态日报 2026-05-05</title>
-      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-agents</link>
-      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-agents</guid>
-      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
-      <description>AI Agents 生态日报 2026-05-05</description>
-    </item>
-    <item>
-      <title>AI 官方内容追踪报告 2026-05-05</title>
-      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-web</link>
-      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-web</guid>
-      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
-      <description>AI 官方内容追踪报告 2026-05-05</description>
-    </item>
-    <item>
-      <title>AI 开源趋势日报 2026-05-05</title>
-      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-trending</link>
-      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-trending</guid>
-      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
-      <description>AI 开源趋势日报 2026-05-05</description>
-    </item>
-    <item>
-      <title>Hacker News AI 社区动态日报 2026-05-05</title>
-      <link>https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-hn</link>
-      <guid isPermaLink="true">https://ivanweng2077.github.io/big_model_radar/#2026-05-05/ai-hn</guid>
-      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
-      <description>Hacker News AI 社区动态日报 2026-05-05</description>
     </item>
   </channel>
 </rss>
