@@ -1,3 +1,9 @@
+从gsscsd/big_model_radar项目fork而来。https://github.com/gsscsd/big_model_radar
+
+相对于原版，增加了一些监控对象，比如如日中天的hermes agent；
+还有agent OS，如Openfang，librefang等.
+
+
 # Big Model Radar
 
 [English](./README.md) | 中文
