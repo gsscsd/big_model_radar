@@ -1,8 +1,7 @@
 
-从gsscsd/big_model_radar项目fork而来。https://github.com/gsscsd/big_model_radar
+Forked from the gsscsd/big_model_radar project. https://github.com/gsscsd/big_model_radar
 
-相对于原版，增加了一些监控对象，比如如日中天的hermes agent；
-还有agent OS，如Openfang，librefang等.
+Compared to the original version, some monitoring targets have been added, such as the rising star **hermes agent**; also agent OS, such as **Openfang, librefang**, etc.
 
 
 # Big Model Radar
