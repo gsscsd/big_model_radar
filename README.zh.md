@@ -16,6 +16,8 @@
 
 在任意 RSS 阅读器（Feedly、Reeder、NewsBlur 等）中订阅，每日自动推送新简报。Feed 包含最新 30 条报告（覆盖所有报告类型），与 `manifest.json` 同步更新。
 
+发布到 GitHub Issues 的正文会对上游 GitHub Issue/PR 链接做 defang 处理，避免在被追踪项目仓库中产生 mention/backreference 噪音。提交到仓库的 Markdown 报告和 Web UI 仍保留正常源链接。
+
 ## MCP Server
 
 **`https://big-model-radar-mcp.<your-subdomain>.workers.dev`**

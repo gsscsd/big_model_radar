@@ -184,8 +184,31 @@ export async function fetchSkillsData(repo: string): Promise<{ prs: GitHubItem[]
 const GITHUB_ISSUE_BODY_LIMIT = 65536;
 const TRUNCATION_NOTICE = "\n\n---\n> ⚠️ 内容超过 GitHub Issue 上限，完整报告见提交的 Markdown 文件。";
 
+function defangGitHubNotifications(body: string): string {
+  return body
+    .replace(
+      /https?:\/\/(?:www\.)?github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/(?:issues|pull)\/\d+(?:[/?#][^\s`<>"']*)?/g,
+      (match: string) => {
+        const trailingPunctuationMatch = match.match(/[),.!?:;]+$/);
+        const trailingPunctuation = trailingPunctuationMatch?.[0] ?? "";
+        const urlWithoutTrailingPunctuation = trailingPunctuation
+          ? match.slice(0, -trailingPunctuation.length)
+          : match;
+        return (
+          urlWithoutTrailingPunctuation.replace(
+            /^https?:\/\/(?:www\.)?github\.com/,
+            "github[.]com",
+          ) + trailingPunctuation
+        );
+      },
+    )
+    .replace(/\b([A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+)#(\d+)\b/g, "`$1#$2`")
+    .replace(/(^|[^\w`])@([A-Za-z0-9-]{1,39})\b/g, "$1@\u200B$2");
+}
+
 export async function createGitHubIssue(title: string, body: string, label: string): Promise<string> {
   const digestRepo = process.env["DIGEST_REPO"] ?? "";
+  body = defangGitHubNotifications(body);
   if (body.length > GITHUB_ISSUE_BODY_LIMIT) {
     body = body.slice(0, GITHUB_ISSUE_BODY_LIMIT - TRUNCATION_NOTICE.length) + TRUNCATION_NOTICE;
   }
