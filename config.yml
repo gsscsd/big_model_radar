@@ -93,3 +93,6 @@ openclaw_peers:
   - id: openfang
     repo: RightNow-AI/openfang
     name: openfang
+  - id: astrBot
+    repo:  AstrBotDevs/AstrBot
+    name: AstrBot
